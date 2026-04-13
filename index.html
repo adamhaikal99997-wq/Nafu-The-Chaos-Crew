@@ -12,7 +12,6 @@
             --dracula-pink: #ff79c6;
             --dracula-cyan: #8be9fd;
             --dracula-gray: #44475a;
-            --dracula-green: #50fa7b;
         }
 
         body {
@@ -56,8 +55,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            text-decoration: none;
-            box-sizing: border-box;
         }
 
         .island-btn:active {
@@ -166,10 +163,6 @@
         
         <button class="island-btn" onclick="showIsland('huraa')">
             K. Huraa <span>⛵</span>
-        </button>
-
-        <button class="island-btn" style="border-color: var(--dracula-green);" onclick="showIsland('budget-section')">
-            Budget Central <span>💰</span>
         </button>
     </div>
 
@@ -385,24 +378,6 @@
             </ul>
         </div>
         <div class="budget-summary">Total Per Person: MVR 2,303</div>
-    </div>
-
-    <div id="budget-section" class="island-section">
-        <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1 style="text-align: center; color: var(--dracula-pink);">💰 Budget Central</h1>
-        
-        <div class="card" style="border-left-color: var(--dracula-green);">
-            <h2>📑 Transfer Slips</h2>
-            <p style="text-align: center; font-size: 0.9rem; margin-bottom: 20px;">Upload and view slips here:</p>
-            
-            <a href="YOUR_LINK_HERE" target="_blank" class="island-btn" style="border-color: var(--dracula-green); justify-content: center;">
-                <span>📥 Upload New Slip</span>
-            </a>
-
-            <p style="text-align: center; font-size: 0.75rem; margin-top: 15px; opacity: 0.6;">
-                *Clicking above opens the shared group folder.
-            </p>
-        </div>
     </div>
 
     <script>
