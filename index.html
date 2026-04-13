@@ -12,6 +12,7 @@
             --dracula-pink: #ff79c6;
             --dracula-cyan: #8be9fd;
             --dracula-gray: #44475a;
+            --dracula-green: #50fa7b;
         }
 
         body {
@@ -23,62 +24,41 @@
             padding: 15px;
         }
 
-        #home-menu {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        #home-menu, .island-section {
+            display: none;
             max-width: 500px;
             margin: 40px auto;
         }
 
-        /* Hide sections by default */
-        #home-menu, .island-section {
-            display: none;
-        }
-
-        /* Show active sections */
         .active {
-            display: block !important;
+            display: flex !important;
+            flex-direction: column;
+            gap: 15px;
             animation: fadeIn 0.4s;
         }
 
-        .menu-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .menu-header h1 {
-            color: var(--dracula-purple);
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
+        .menu-header { text-align: center; margin-bottom: 20px; }
+        .menu-header h1 { color: var(--dracula-purple); font-size: 1.8rem; }
 
         .island-btn {
             background-color: var(--dracula-gray);
             color: var(--dracula-cyan);
             border: 2px solid var(--dracula-purple);
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            transition: 0.2s;
         }
 
-        .island-btn:active {
-            transform: scale(0.98);
-            background-color: var(--dracula-purple);
-            color: var(--dracula-bg);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        .island-btn:active { transform: scale(0.98); background-color: var(--dracula-purple); color: var(--dracula-bg); }
 
         .back-btn {
             background: none;
@@ -88,72 +68,17 @@
             border-radius: 8px;
             cursor: pointer;
             margin-bottom: 20px;
-            font-weight: bold;
+            align-self: flex-start;
         }
 
-        .card {
-            background-color: #343746;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            border-left: 4px solid var(--dracula-purple);
-        }
-
-        h1 { font-size: 1.5rem; color: var(--dracula-purple); margin-bottom: 5px; }
-        h2 { font-size: 1.2rem; color: var(--dracula-pink); margin-top: 0; border-bottom: 1px solid var(--dracula-gray); padding-bottom: 8px; }
-        
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        .label { color: var(--dracula-cyan); font-weight: bold; }
-
-        .transport-card {
-            background: var(--dracula-gray);
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-
-        .budget-summary {
-            background-color: var(--dracula-purple);
-            color: var(--dracula-bg);
-            padding: 15px;
-            border-radius: 12px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        ul { padding-left: 20px; margin: 0; }
-        li { margin-bottom: 10px; font-size: 0.9rem; }
-
-        .contact-btn {
-            display: block;
-            text-align: center;
-            background: var(--dracula-cyan);
-            color: var(--dracula-bg);
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        hr { border: 0; border-top: 1px solid var(--dracula-gray); margin: 15px 0; }
-        
-        .planning-dropdown {
+        .planning-dropdown, .slip-dropdown {
             background-color: var(--dracula-gray);
             border-radius: 15px;
             padding: 10px;
-            margin-top: 20px;
             border: 1px dashed var(--dracula-purple);
         }
-        .planning-dropdown summary {
+
+        summary {
             font-weight: bold;
             color: var(--dracula-pink);
             text-align: center;
@@ -161,11 +86,19 @@
             cursor: pointer;
             list-style: none;
         }
+
         .dropdown-content {
             margin-top: 15px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
+        }
+
+        .card {
+            background-color: #343746;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--dracula-purple);
         }
     </style>
 </head>
@@ -175,116 +108,71 @@
         <div class="menu-header">
             <h1>💅 Nafu & The Chaos Crew</h1>
         </div>
+
         <details class="planning-dropdown">
             <summary>📂 Planning Section</summary>
             <div class="dropdown-content">
-                <button class="island-btn" onclick="showIsland('thulusdhoo')">
-                    K. Thulusdhoo <span>🏝️</span>
-                </button>
-                <button class="island-btn" onclick="showIsland('dhiffushi')">
-                    K. Dhiffushi <span>🌊</span>
-                </button>
-                <button class="island-btn" onclick="showIsland('huraa')">
-                    K. Huraa <span>⛵</span>
-                </button>
-                <button class="island-btn" style="border-color: #50fa7b; margin-top: 10px;" onclick="showIsland('budget-section')">
-                    💰 Budget Section <span>📊</span>
-                </button>
+                <button class="island-btn" onclick="showIsland('thulusdhoo')">K. Thulusdhoo 🏝️</button>
+                <button class="island-btn" onclick="showIsland('dhiffushi')">K. Dhiffushi 🌊</button>
+                <button class="island-btn" onclick="showIsland('huraa')">K. Huraa ⛵</button>
+            </div>
+        </details>
+
+        <button class="island-btn" style="border-color: var(--dracula-green);" onclick="showIsland('budget-section')">
+            💰 Budget Section 📊
+        </button>
+    </div>
+
+    <div id="budget-section" class="island-section">
+        <button class="back-btn" onclick="goHome()">← Back to Menu</button>
+        <h1 style="text-align: center; color: var(--dracula-pink);">💰 Budget Central</h1>
+
+        <details class="slip-dropdown">
+            <summary>📑 Transfer Slips</summary>
+            <div class="dropdown-content">
+                <div class="card" style="border-color: var(--dracula-green);">
+                    <p style="text-align: center; font-size: 0.9rem;">Upload payment slips here:</p>
+                    <input type="file" id="slip-upload" accept="image/*" style="display: none;">
+                    <label for="slip-upload" class="island-btn" style="border-color: var(--dracula-green); justify-content: center; padding: 15px;">
+                        📤 Upload New Slip
+                    </label>
+                    <div style="margin-top: 20px; height: 300px; background: #282a36; border-radius: 10px; overflow: hidden;">
+                        <iframe src="YOUR_SHARED_FOLDER_LINK" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
             </div>
         </details>
     </div>
 
     <div id="thulusdhoo" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1>🌴 K.Thulusdhoo Itinerary</h1>
-        <p style="margin-bottom: 20px; opacity: 0.8;">April 26 – 28, 2026</p>
-
-        <div class="card">
-            <h2>📍 Stay & Group</h2>
-            <div class="info-row"><span class="label">Hotel:</span><span>Blissview Maldives</span></div>
-            <div class="info-row"><span class="label">Rooms:</span><span>2 Rooms / 3 Single Beds</span></div>
-        </div>
-
-        <div class="card" style="border-left-color: var(--dracula-cyan);">
-            <h2>⛴️ Transport</h2>
-            <div class="transport-card">
-                <div class="label">Male' → Thulusdhoo (Sun, 26 Apr)</div>
-                <div>Departure: 9:15 AM (Refcool Marine)</div>
-            </div>
-            <a href="tel:+9607316362" class="contact-btn">📞 Call Refcool: 7316362</a>
-        </div>
-        <div class="budget-summary">Total Per Person: MVR 2,342</div>
+        <h1>🏝️ K. Thulusdhoo</h1>
+        <div class="card">Itinerary details here...</div>
     </div>
-
     <div id="dhiffushi" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1>🌴 K.Dhiffushi Itinerary</h1>
-        <p style="margin-bottom: 20px; opacity: 0.8;">April 26 – 28, 2026</p>
-
-        <div class="card">
-            <h2>📍 Stay & Group</h2>
-            <div class="info-row"><span class="label">Hotel:</span><span>Holiday Home Dhiffushi</span></div>
-            <div class="info-row"><span class="label">Rooms:</span><span>1 Deluxe Triple Room</span></div>
-        </div>
-        <div class="budget-summary">Total Per Person: MVR 2,305</div>
+        <h1>🌊 K. Dhiffushi</h1>
+        <div class="card">Itinerary details here...</div>
     </div>
-
     <div id="huraa" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1>🌴 K.Huraa Itinerary</h1>
-        <p style="margin-bottom: 20px; opacity: 0.8;">April 26 – 28, 2026</p>
-
-        <div class="card">
-            <h2>📍 Stay & Group</h2>
-            <div class="info-row"><span class="label">Hotel:</span><span>Wish Guesthouse</span></div>
-        </div>
-        <div class="budget-summary">Total Per Person: MVR 2,303</div>
-    </div>
-
-    <div id="budget-section" class="island-section">
-        <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1 style="color: #ff79c6; text-align: center;">💰 Budget Section</h1>
-
-        <div class="card" style="border-left-color: #50fa7b;">
-            <h3 style="margin-top: 0; color: #8be9fd; text-align: center;">📑 Transfer Slips</h3>
-            <div style="text-align: center; margin-bottom: 20px; padding: 15px; border: 2px dashed #6272a4; border-radius: 12px;">
-                <p style="font-size: 0.85em; margin-bottom: 10px; opacity: 0.8;">Girls, upload your slips here:</p>
-                <input type="file" id="slip-upload" accept="image/*" style="display: none;">
-                <label for="slip-upload" class="island-btn" style="display: inline-block; cursor: pointer; border-color: #50fa7b; padding: 10px 20px; font-size: 1rem;">
-                    📤 Click to Upload Slip
-                </label>
-            </div>
-            <div style="width: 100%; height: 350px; border-radius: 15px; overflow: hidden; border: 1px solid #44475a; background: #44475a;">
-                <iframe src="YOUR_SHARED_FOLDER_LINK" style="width: 100%; height: 100%; border: none;"></iframe>
-            </div>
-        </div>
+        <h1>⛵ K. Huraa</h1>
+        <div class="card">Itinerary details here...</div>
     </div>
 
     <script>
         function showIsland(id) {
-            // Hide menu
             document.getElementById('home-menu').classList.remove('active');
-            // Hide all sections
-            document.querySelectorAll('.island-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show target section
-            const target = document.getElementById(id);
-            if(target) {
-                target.classList.add('active');
-            }
-            window.scrollTo(0, 0);
+            document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0,0);
         }
 
         function goHome() {
-            // Hide all sections
-            document.querySelectorAll('.island-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            // Show menu
+            document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
             document.getElementById('home-menu').classList.add('active');
-            window.scrollTo(0, 0);
+            window.scrollTo(0,0);
         }
-    </script> 
+    </script>
 </body>
 </html>
