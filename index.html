@@ -71,6 +71,7 @@
             cursor: pointer;
             margin-bottom: 20px;
             align-self: flex-start;
+            font-weight: bold;
         }
 
         .planning-dropdown, .slip-dropdown {
@@ -141,7 +142,7 @@
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
         <h1 style="text-align: center; color: var(--dracula-pink);">💰 Budget Central</h1>
 
-        <details class="slip-dropdown" open>
+        <details class="slip-dropdown">
             <summary>📑 Transfer Slips</summary>
             <div class="dropdown-content">
                 <div class="card" style="border-color: var(--dracula-green);">
@@ -162,7 +163,7 @@
 
     <div id="thulusdhoo" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1>🏝️ K. Thulusdhoo</h1>
+        <h1>🌴 K.Thulusdhoo Itinerary</h1>
         <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
         
         <div class="card">
@@ -170,33 +171,40 @@
             <div class="info-row"><span class="label">Hotel:</span><span>Blissview Maldives</span></div>
             <div class="info-row"><span class="label">Rooms:</span><span>2 Rooms / 3 Single Beds</span></div>
             <div class="info-row"><span class="label">Group:</span><span>3 People</span></div>
+            <div class="info-row"><span class="label">Perks:</span><span>Breakfast + Free Cancellation</span></div>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-cyan);">
             <h2>⛴️ Transport</h2>
             <div class="transport-card">
-                <div class="label">Male' → Thulusdhoo (Sun, 26 Apr)</div>
+                <div class="label">Male' → TLD (Sun, 26 Apr)</div>
                 <div>9:15 AM | MVR 200</div>
             </div>
             <div class="transport-card">
-                <div class="label">Thulusdhoo → Male' (Tue, 28 Apr)</div>
+                <div class="label">TLD → Male' (Tue, 28 Apr)</div>
                 <div>10:30 AM | MVR 200</div>
             </div>
+            <div class="info-row"><span class="label">Ferry:</span><span>Refcool Marine</span></div>
             <a href="tel:+9607316362" class="contact-btn">📞 Call Refcool: 7316362</a>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget Breakdown</h2>
+            <h2>💰 Budget Breakdown (Per Person)</h2>
             <div class="info-row"><span>Stay:</span><span>MVR 1,162</span></div>
             <div class="info-row"><span>Speedboat:</span><span>MVR 400</span></div>
             <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
             <div style="margin: 5px 0 10px 15px; font-size: 0.85rem; opacity: 0.8; border-left: 1px solid var(--dracula-gray); padding-left: 10px;">
                 <div class="info-row"><span>• Lunch (2x)</span><span>MVR 240</span></div>
+                <div class="info-row"><span>• Evening Tea (2x)</span><span>MVR 80</span></div>
                 <div class="info-row"><span>• Dinner (2x)</span><span>MVR 400</span></div>
+                <div class="info-row"><span>• Drinks</span><span>MVR 60</span></div>
             </div>
             <hr>
             <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
                 <span>Total Per Person:</span><span>MVR 2,342</span>
+            </div>
+            <div class="info-row" style="margin-top: 10px; font-weight: bold; border-top: 1px solid var(--dracula-gray); padding-top: 10px;">
+                <span>Group Total (3):</span><span class="label">MVR 7,026</span>
             </div>
         </div>
 
@@ -208,17 +216,19 @@
                 <li><strong>Bikini Beach:</strong> North-west beach (Free)</li>
             </ul>
         </div>
+        <div class="budget-summary">Total Per Person: MVR 2,342</div>
     </div>
 
     <div id="dhiffushi" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1>🌊 K. Dhiffushi</h1>
+        <h1>🌴 K.Dhiffushi Itinerary</h1>
         <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
 
         <div class="card">
             <h2>📍 Stay & Group</h2>
             <div class="info-row"><span class="label">Hotel:</span><span>Holiday Home Dhiffushi</span></div>
             <div class="info-row"><span class="label">Rooms:</span><span>1 Deluxe Triple Room</span></div>
+            <div class="info-row"><span class="label">Perks:</span><span>No Prepayment Needed</span></div>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-cyan);">
@@ -231,17 +241,21 @@
                 <div class="label">Dhiffushi → Male' (Tue, 28 Apr)</div>
                 <div>13:30 PM | MVR 300</div>
             </div>
+            <div class="info-row"><span class="label">Ferry:</span><span>Altec Tours</span></div>
             <a href="tel:+9609163269" class="contact-btn">📞 Call Altec: 9163269</a>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget Breakdown</h2>
+            <h2>💰 Budget Breakdown (Per Person)</h2>
             <div class="info-row"><span>Stay:</span><span>MVR 925</span></div>
             <div class="info-row"><span>Speedboat:</span><span>MVR 600</span></div>
             <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
             <hr>
             <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
                 <span>Total Per Person:</span><span>MVR 2,305</span>
+            </div>
+            <div class="info-row" style="margin-top: 10px; font-weight: bold; border-top: 1px solid var(--dracula-gray); padding-top: 10px;">
+                <span>Group Total (3):</span><span class="label">MVR 6,916</span>
             </div>
         </div>
 
@@ -252,17 +266,19 @@
                 <li><strong>Stingray Feeding:</strong> Harbor (Free)</li>
             </ul>
         </div>
+        <div class="budget-summary">Total Per Person: MVR 2,305</div>
     </div>
 
     <div id="huraa" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1>⛵ K. Huraa</h1>
+        <h1>🌴 K.Huraa Itinerary</h1>
         <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
 
         <div class="card">
             <h2>📍 Stay & Group</h2>
             <div class="info-row"><span class="label">Hotel:</span><span>Wish Guesthouse</span></div>
             <div class="info-row"><span class="label">Rooms:</span><span>1 Double Room (3 Beds)</span></div>
+            <div class="info-row"><span class="label">Perks:</span><span>Breakfast Included</span></div>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-cyan);">
@@ -275,17 +291,21 @@
                 <div class="label">Huraa → Male' (Tue, 28 Apr)</div>
                 <div>13:00 PM | MVR 150</div>
             </div>
+            <div class="info-row"><span class="label">Ferry:</span><span>Sea Shine Ferry</span></div>
             <a href="tel:+9607741313" class="contact-btn">📞 Call Sea Shine: 7741313</a>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget Breakdown</h2>
+            <h2>💰 Budget Breakdown (Per Person)</h2>
             <div class="info-row"><span>Stay:</span><span>MVR 1,223</span></div>
             <div class="info-row"><span>Speedboat:</span><span>MVR 300</span></div>
             <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
             <hr>
             <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
                 <span>Total Per Person:</span><span>MVR 2,303</span>
+            </div>
+            <div class="info-row" style="margin-top: 10px; font-weight: bold; border-top: 1px solid var(--dracula-gray); padding-top: 10px;">
+                <span>Group Total (3):</span><span class="label">MVR 6,910</span>
             </div>
         </div>
 
@@ -296,28 +316,23 @@
                 <li><strong>House Reef:</strong> Snorkeling (Free)</li>
             </ul>
         </div>
+        <div class="budget-summary">Total Per Person: MVR 2,303</div>
     </div>
 
     <script>
         function showIsland(id) {
             document.getElementById('home-menu').style.display = 'none';
-            document.querySelectorAll('.island-section').forEach(s => s.style.display = 'none');
+            document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
             const target = document.getElementById(id);
             if(target) {
-                target.style.display = 'flex';
                 target.classList.add('active');
             }
             window.scrollTo(0,0);
         }
 
         function goHome() {
-            document.querySelectorAll('.island-section').forEach(s => {
-                s.style.display = 'none';
-                s.classList.remove('active');
-            });
-            const home = document.getElementById('home-menu');
-            home.style.display = 'flex';
-            home.classList.add('active');
+            document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('home-menu').style.display = 'flex';
             window.scrollTo(0,0);
         }
     </script>
