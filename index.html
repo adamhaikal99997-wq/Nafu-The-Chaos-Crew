@@ -24,43 +24,63 @@
             padding: 15px;
         }
 
-        #home-menu, .island-section {
-            display: none;
+        #home-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
             max-width: 500px;
             margin: 40px auto;
         }
 
-        .active {
-            display: flex !important;
-            flex-direction: column;
-            gap: 15px;
-            animation: fadeIn 0.4s;
+        .menu-header {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .menu-header { text-align: center; margin-bottom: 20px; }
-        .menu-header h1 { color: var(--dracula-purple); font-size: 1.8rem; margin-bottom: 5px; }
+        .menu-header h1 {
+            color: var(--dracula-purple);
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
 
         .island-btn {
             background-color: var(--dracula-gray);
             color: var(--dracula-cyan);
             border: 2px solid var(--dracula-purple);
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
+            transition: all 0.2s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            transition: 0.2s;
             text-decoration: none;
             box-sizing: border-box;
         }
 
-        .island-btn:active { transform: scale(0.98); background-color: var(--dracula-purple); color: var(--dracula-bg); }
+        .island-btn:active {
+            transform: scale(0.98);
+            background-color: var(--dracula-purple);
+            color: var(--dracula-bg);
+        }
+
+        .island-section {
+            display: none;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .active {
+            display: block;
+            animation: fadeIn 0.4s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
         .back-btn {
             background: none;
@@ -70,50 +90,62 @@
             border-radius: 8px;
             cursor: pointer;
             margin-bottom: 20px;
-            align-self: flex-start;
             font-weight: bold;
-        }
-
-        .planning-dropdown, .slip-dropdown {
-            background-color: var(--dracula-gray);
-            border-radius: 15px;
-            padding: 10px;
-            border: 1px dashed var(--dracula-purple);
-        }
-
-        summary {
-            font-weight: bold;
-            color: var(--dracula-pink);
-            text-align: center;
-            padding: 10px;
-            cursor: pointer;
-            list-style: none;
-        }
-
-        .dropdown-content {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
         }
 
         .card {
             background-color: #343746;
             padding: 20px;
             border-radius: 15px;
-            border-left: 4px solid var(--dracula-purple);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-left: 4px solid var(--dracula-purple);
         }
 
+        h1 { font-size: 1.5rem; color: var(--dracula-purple); margin-bottom: 5px; }
         h2 { font-size: 1.2rem; color: var(--dracula-pink); margin-top: 0; border-bottom: 1px solid var(--dracula-gray); padding-bottom: 8px; }
-        .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem; }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
         .label { color: var(--dracula-cyan); font-weight: bold; }
-        .transport-card { background: var(--dracula-gray); padding: 12px; border-radius: 10px; margin-bottom: 10px; }
-        .contact-btn { display: block; text-align: center; background: var(--dracula-cyan); color: var(--dracula-bg); text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
-        .budget-summary { background-color: var(--dracula-purple); color: var(--dracula-bg); padding: 15px; border-radius: 12px; text-align: center; font-weight: bold; }
+
+        .transport-card {
+            background: var(--dracula-gray);
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .budget-summary {
+            background-color: var(--dracula-purple);
+            color: var(--dracula-bg);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
         ul { padding-left: 20px; margin: 0; }
         li { margin-bottom: 10px; font-size: 0.9rem; }
+
+        .contact-btn {
+            display: block;
+            text-align: center;
+            background: var(--dracula-cyan);
+            color: var(--dracula-bg);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
         hr { border: 0; border-top: 1px solid var(--dracula-gray); margin: 15px 0; }
     </style>
 </head>
@@ -123,51 +155,32 @@
         <div class="menu-header">
             <h1>💅 Nafu & The Chaos Crew</h1>
         </div>
-
-        <details class="planning-dropdown">
-            <summary>📂 Planning Section</summary>
-            <div class="dropdown-content">
-                <button class="island-btn" onclick="showIsland('thulusdhoo')">K. Thulusdhoo 🏝️</button>
-                <button class="island-btn" onclick="showIsland('dhiffushi')">K. Dhiffushi 🌊</button>
-                <button class="island-btn" onclick="showIsland('huraa')">K. Huraa ⛵</button>
-            </div>
-        </details>
+        
+        <button class="island-btn" onclick="showIsland('thulusdhoo')">
+            K. Thulusdhoo <span>🏝️</span>
+        </button>
+        
+        <button class="island-btn" onclick="showIsland('dhiffushi')">
+            K. Dhiffushi <span>🌊</span>
+        </button>
+        
+        <button class="island-btn" onclick="showIsland('huraa')">
+            K. Huraa <span>⛵</span>
+        </button>
 
         <button class="island-btn" style="border-color: var(--dracula-green);" onclick="showIsland('budget-section')">
-            💰 Budget Section 📊
+            Budget Central <span>💰</span>
         </button>
-    </div>
-
-    <div id="budget-section" class="island-section">
-        <button class="back-btn" onclick="goHome()">← Back to Menu</button>
-        <h1 style="text-align: center; color: var(--dracula-pink);">💰 Budget Central</h1>
-
-        <details class="slip-dropdown">
-            <summary>📑 Transfer Slips</summary>
-            <div class="dropdown-content">
-                <div class="card" style="border-color: var(--dracula-green);">
-                    <p style="text-align: center; font-size: 0.9rem; margin-bottom: 15px;">Upload payment slips here:</p>
-                    
-                    <input type="file" id="slip-upload" accept="image/*" style="display: none;">
-                    <label for="slip-upload" class="island-btn" style="border-color: var(--dracula-green); justify-content: center;">
-                        <span>📤 Upload New Slip</span>
-                    </label>
-
-                    <div style="margin-top: 20px; height: 350px; background: #282a36; border-radius: 10px; overflow: hidden; border: 1px solid var(--dracula-gray);">
-                        <iframe src="YOUR_SHARED_FOLDER_LINK" style="width: 100%; height: 100%; border: none;"></iframe>
-                    </div>
-                </div>
-            </div>
-        </details>
     </div>
 
     <div id="thulusdhoo" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
         <h1>🌴 K.Thulusdhoo Itinerary</h1>
-        <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
-        
+        <p style="margin-bottom: 20px; opacity: 0.8;">April 26 – 28, 2026</p>
+
         <div class="card">
             <h2>📍 Stay & Group</h2>
+            <div class="info-row"><span class="label">Location:</span><span>K. Thulusdhoo</span></div>
             <div class="info-row"><span class="label">Hotel:</span><span>Blissview Maldives</span></div>
             <div class="info-row"><span class="label">Rooms:</span><span>2 Rooms / 3 Single Beds</span></div>
             <div class="info-row"><span class="label">Group:</span><span>3 People</span></div>
@@ -178,42 +191,55 @@
             <h2>⛴️ Transport</h2>
             <div class="transport-card">
                 <div class="label">Male' → TLD (Sun, 26 Apr)</div>
-                <div>9:15 AM | MVR 200</div>
+                <div>Departure: 9:15 AM</div>
+                <div>Time: ~35-45 Mins</div>
+                <div>Cost: MVR 200</div>
             </div>
             <div class="transport-card">
                 <div class="label">TLD → Male' (Tue, 28 Apr)</div>
-                <div>10:30 AM | MVR 200</div>
+                <div>Departure: 10:30 AM</div>
+                <div>Time: ~35-45 Mins</div>
+                <div>Cost: MVR 200</div>
             </div>
-            <div class="info-row"><span class="label">Ferry:</span><span>Refcool Marine</span></div>
+            <div class="info-row" style="margin-top:10px;">
+                <span class="label">Ferry:</span><span>Refcool Marine</span>
+            </div>
             <a href="tel:+9607316362" class="contact-btn">📞 Call Refcool: 7316362</a>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget Breakdown (Per Person)</h2>
+            <h2>💰 Budget Breakdown</h2>
+            <div style="color: var(--dracula-purple); font-weight: bold; margin-bottom: 10px;">Per Person</div>
             <div class="info-row"><span>Stay:</span><span>MVR 1,162</span></div>
-            <div class="info-row"><span>Speedboat:</span><span>MVR 400</span></div>
-            <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
-            <div style="margin: 5px 0 10px 15px; font-size: 0.85rem; opacity: 0.8; border-left: 1px solid var(--dracula-gray); padding-left: 10px;">
+            <div class="info-row"><span>Speedboat (Return):</span><span>MVR 400</span></div>
+            <div class="info-row"><span>Food (Est. 2 days):</span><span>MVR 780</span></div>
+            <div style="margin: 5px 0 15px 15px; padding-left: 10px; border-left: 1px solid var(--dracula-gray); font-size: 0.85rem; opacity: 0.9;">
                 <div class="info-row"><span>• Lunch (2x)</span><span>MVR 240</span></div>
                 <div class="info-row"><span>• Evening Tea (2x)</span><span>MVR 80</span></div>
                 <div class="info-row"><span>• Dinner (2x)</span><span>MVR 400</span></div>
-                <div class="info-row"><span>• Drinks</span><span>MVR 60</span></div>
+                <div class="info-row"><span>• Water/Drinks</span><span>MVR 60</span></div>
+            </div>
+            <div class="info-row" style="font-weight: bold; color: var(--dracula-cyan);">
+                <span>Subtotal:</span><span>MVR 2,342</span>
             </div>
             <hr>
-            <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
-                <span>Total Per Person:</span><span>MVR 2,342</span>
-            </div>
-            <div class="info-row" style="margin-top: 10px; font-weight: bold; border-top: 1px solid var(--dracula-gray); padding-top: 10px;">
-                <span>Group Total (3):</span><span class="label">MVR 7,026</span>
+            <div style="color: var(--dracula-purple); font-weight: bold; margin-bottom: 10px;">Total Group (3 People)</div>
+            <div class="info-row"><span>Total Stay:</span><span>MVR 3,486</span></div>
+            <div class="info-row"><span>Total Transport:</span><span>MVR 1,200</span></div>
+            <div class="info-row"><span>Total Food Est:</span><span>MVR 2,340</span></div>
+            <div class="info-row" style="margin-top: 10px; padding-top: 10px; border-top: 2px solid var(--dracula-pink); font-size: 1.1rem; font-weight: bold;">
+                <span>Group Grand Total:</span><span class="label">MVR 7,026</span>
             </div>
         </div>
 
         <div class="card">
-            <h2>🌊 Activities</h2>
+            <h2>🌊 Top Activities</h2>
             <ul>
                 <li><strong>Surfer Watching:</strong> Cokes Island (Free)</li>
                 <li><strong>Coca-Cola Factory:</strong> Desalination tour ($5-$10)</li>
                 <li><strong>Bikini Beach:</strong> North-west beach (Free)</li>
+                <li><strong>Snorkel Trip:</strong> Turtles & Sharks ($25-$60)</li>
+                <li><strong>Night Fishing:</strong> Sunset boat trip (~$30)</li>
             </ul>
         </div>
         <div class="budget-summary">Total Per Person: MVR 2,342</div>
@@ -222,48 +248,68 @@
     <div id="dhiffushi" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
         <h1>🌴 K.Dhiffushi Itinerary</h1>
-        <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
+        <p style="margin-bottom: 20px; opacity: 0.8;">April 26 – 28, 2026</p>
 
         <div class="card">
             <h2>📍 Stay & Group</h2>
+            <div class="info-row"><span class="label">Location:</span><span>K. Dhiffushi</span></div>
             <div class="info-row"><span class="label">Hotel:</span><span>Holiday Home Dhiffushi</span></div>
             <div class="info-row"><span class="label">Rooms:</span><span>1 Deluxe Triple Room</span></div>
-            <div class="info-row"><span class="label">Perks:</span><span>No Prepayment Needed</span></div>
+            <div class="info-row"><span class="label">Group:</span><span>3 People</span></div>
+            <div class="info-row"><span class="label">Perks:</span><span>No Prepayment + Costs 1st Night to Cancel</span></div>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-cyan);">
             <h2>⛴️ Transport</h2>
             <div class="transport-card">
                 <div class="label">Male' → Dhiffushi (Sun, 26 Apr)</div>
-                <div>11:30 AM | MVR 300</div>
+                <div>Departure: 11:30 AM</div>
+                <div>Cost: MVR 300</div>
             </div>
             <div class="transport-card">
                 <div class="label">Dhiffushi → Male' (Tue, 28 Apr)</div>
-                <div>13:30 PM | MVR 300</div>
+                <div>Departure: 13:30 PM</div>
+                <div>Cost: MVR 300</div>
             </div>
-            <div class="info-row"><span class="label">Ferry:</span><span>Altec Tours</span></div>
+            <div class="info-row" style="margin-top:10px;">
+                <span class="label">Ferry:</span><span>Altec Tours</span>
+            </div>
             <a href="tel:+9609163269" class="contact-btn">📞 Call Altec: 9163269</a>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget Breakdown (Per Person)</h2>
+            <h2>💰 Budget Breakdown</h2>
+            <div style="color: var(--dracula-purple); font-weight: bold; margin-bottom: 10px;">Per Person</div>
             <div class="info-row"><span>Stay:</span><span>MVR 925</span></div>
-            <div class="info-row"><span>Speedboat:</span><span>MVR 600</span></div>
-            <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
-            <hr>
-            <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
-                <span>Total Per Person:</span><span>MVR 2,305</span>
+            <div class="info-row"><span>Speedboat (Return):</span><span>MVR 600</span></div>
+            <div class="info-row"><span>Food (Est. 2 days):</span><span>MVR 780</span></div>
+            <div style="margin: 5px 0 15px 15px; padding-left: 10px; border-left: 1px solid var(--dracula-gray); font-size: 0.85rem; opacity: 0.9;">
+                <div class="info-row"><span>• Lunch (2x)</span><span>MVR 240</span></div>
+                <div class="info-row"><span>• Evening Tea (2x)</span><span>MVR 80</span></div>
+                <div class="info-row"><span>• Dinner (2x)</span><span>MVR 400</span></div>
+                <div class="info-row"><span>• Water/Drinks</span><span>MVR 60</span></div>
             </div>
-            <div class="info-row" style="margin-top: 10px; font-weight: bold; border-top: 1px solid var(--dracula-gray); padding-top: 10px;">
-                <span>Group Total (3):</span><span class="label">MVR 6,916</span>
+            <div class="info-row" style="font-weight: bold; color: var(--dracula-cyan);">
+                <span>Subtotal:</span><span>MVR 2,305</span>
+            </div>
+            <hr>
+            <div style="color: var(--dracula-purple); font-weight: bold; margin-bottom: 10px;">Total Group (3 People)</div>
+            <div class="info-row"><span>Total Stay:</span><span>MVR 2,776</span></div>
+            <div class="info-row"><span>Total Transport:</span><span>MVR 1,800</span></div>
+            <div class="info-row"><span>Total Food Est:</span><span>MVR 2,340</span></div>
+            <div class="info-row" style="margin-top: 10px; padding-top: 10px; border-top: 2px solid var(--dracula-pink); font-size: 1.1rem; font-weight: bold;">
+                <span>Group Grand Total:</span><span class="label">MVR 6,916</span>
             </div>
         </div>
 
         <div class="card">
-            <h2>🌊 Activities</h2>
+            <h2>🌊 Top Activities</h2>
             <ul>
-                <li><strong>Sandbank Picnic:</strong> Explore lagoons</li>
-                <li><strong>Stingray Feeding:</strong> Harbor (Free)</li>
+                <li><strong>Sandbank Picnic:</strong> Explore surrounding lagoons (Free-$$)</li>
+                <li><strong>Sunset Dolphin Cruise:</strong> Channel dolphin watching</li>
+                <li><strong>Turtle & Shark Snorkeling:</strong> Guided boat excursions</li>
+                <li><strong>Night Fishing:</strong> Traditional Maldivian line fishing</li>
+                <li><strong>Stingray Feeding:</strong> Sunset harbor activity (Free)</li>
             </ul>
         </div>
         <div class="budget-summary">Total Per Person: MVR 2,305</div>
@@ -272,68 +318,109 @@
     <div id="huraa" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
         <h1>🌴 K.Huraa Itinerary</h1>
-        <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
+        <p style="margin-bottom: 20px; opacity: 0.8;">April 26 – 28, 2026</p>
 
         <div class="card">
             <h2>📍 Stay & Group</h2>
+            <div class="info-row"><span class="label">Location:</span><span>K. Huraa</span></div>
             <div class="info-row"><span class="label">Hotel:</span><span>Wish Guesthouse</span></div>
             <div class="info-row"><span class="label">Rooms:</span><span>1 Double Room (3 Beds)</span></div>
-            <div class="info-row"><span class="label">Perks:</span><span>Breakfast Included</span></div>
+            <div class="info-row"><span class="label">Group:</span><span>3 People</span></div>
+            <div class="info-row"><span class="label">Perks:</span><span>Breakfast + Free Cancellation</span></div>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-cyan);">
             <h2>⛴️ Transport</h2>
             <div class="transport-card">
                 <div class="label">Male' → Huraa (Sun, 26 Apr)</div>
-                <div>11:00 AM | MVR 150</div>
+                <div>Departure: 11:00 AM</div>
+                <div>Time: ~30 Mins</div>
+                <div>Cost: MVR 150</div>
             </div>
             <div class="transport-card">
                 <div class="label">Huraa → Male' (Tue, 28 Apr)</div>
-                <div>13:00 PM | MVR 150</div>
+                <div>Departure: 13:00 PM</div>
+                <div>Time: ~30 Mins</div>
+                <div>Cost: MVR 150</div>
             </div>
-            <div class="info-row"><span class="label">Ferry:</span><span>Sea Shine Ferry</span></div>
+            <div class="info-row" style="margin-top:10px;">
+                <span class="label">Ferry:</span><span>Sea Shine Ferry Service</span>
+            </div>
             <a href="tel:+9607741313" class="contact-btn">📞 Call Sea Shine: 7741313</a>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget Breakdown (Per Person)</h2>
+            <h2>💰 Budget Breakdown</h2>
+            <div style="color: var(--dracula-purple); font-weight: bold; margin-bottom: 10px;">Per Person</div>
             <div class="info-row"><span>Stay:</span><span>MVR 1,223</span></div>
-            <div class="info-row"><span>Speedboat:</span><span>MVR 300</span></div>
-            <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
-            <hr>
-            <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
-                <span>Total Per Person:</span><span>MVR 2,303</span>
+            <div class="info-row"><span>Speedboat (Return):</span><span>MVR 300</span></div>
+            <div class="info-row"><span>Food (Est. 2 days):</span><span>MVR 780</span></div>
+            <div style="margin: 5px 0 15px 15px; padding-left: 10px; border-left: 1px solid var(--dracula-gray); font-size: 0.85rem; opacity: 0.9;">
+                <div class="info-row"><span>• Lunch (2x)</span><span>MVR 240</span></div>
+                <div class="info-row"><span>• Evening Tea (2x)</span><span>MVR 80</span></div>
+                <div class="info-row"><span>• Dinner (2x)</span><span>MVR 400</span></div>
+                <div class="info-row"><span>• Water/Drinks</span><span>MVR 60</span></div>
             </div>
-            <div class="info-row" style="margin-top: 10px; font-weight: bold; border-top: 1px solid var(--dracula-gray); padding-top: 10px;">
-                <span>Group Total (3):</span><span class="label">MVR 6,910</span>
+            <div class="info-row" style="font-weight: bold; color: var(--dracula-cyan);">
+                <span>Subtotal:</span><span>MVR 2,303</span>
+            </div>
+            <hr>
+            <div style="color: var(--dracula-purple); font-weight: bold; margin-bottom: 10px;">Total Group (3 People)</div>
+            <div class="info-row"><span>Total Stay:</span><span>MVR 3,670</span></div>
+            <div class="info-row"><span>Total Transport:</span><span>MVR 900</span></div>
+            <div class="info-row"><span>Total Food Est:</span><span>MVR 2,340</span></div>
+            <div class="info-row" style="margin-top: 10px; padding-top: 10px; border-top: 2px solid var(--dracula-pink); font-size: 1.1rem; font-weight: bold;">
+                <span>Group Grand Total:</span><span class="label">MVR 6,910</span>
             </div>
         </div>
 
         <div class="card">
-            <h2>🌊 Activities</h2>
+            <h2>🌊 Top Activities</h2>
             <ul>
-                <li><strong>Mangrove Reserve:</strong> Nature exploration (Free)</li>
-                <li><strong>House Reef:</strong> Snorkeling (Free)</li>
+                <li><strong>House Reef Snorkeling:</strong> Shore-access turtles & sharks</li>
+                <li><strong>Mangrove Nature Reserve:</strong> Rare lake exploration (Free)</li>
+                <li><strong>Surf Chickens & Cokes:</strong> World-class breaks (Nearby)</li>
+                <li><strong>Turtle/Dolphin Safari:</strong> Guided boat excursions</li>
+                <li><strong>Resort Day Trip:</strong> Club Med Kani or Dhonveli access</li>
             </ul>
         </div>
         <div class="budget-summary">Total Per Person: MVR 2,303</div>
     </div>
 
+    <div id="budget-section" class="island-section">
+        <button class="back-btn" onclick="goHome()">← Back to Menu</button>
+        <h1 style="text-align: center; color: var(--dracula-pink);">💰 Budget Central</h1>
+        
+        <div class="card" style="border-left-color: var(--dracula-green);">
+            <h2>📑 Transfer Slips</h2>
+            <p style="text-align: center; font-size: 0.9rem; margin-bottom: 20px;">Upload and view slips here:</p>
+            
+            <a href="YOUR_LINK_HERE" target="_blank" class="island-btn" style="border-color: var(--dracula-green); justify-content: center;">
+                <span>📥 Upload New Slip</span>
+            </a>
+
+            <p style="text-align: center; font-size: 0.75rem; margin-top: 15px; opacity: 0.6;">
+                *Clicking above opens the shared group folder.
+            </p>
+        </div>
+    </div>
+
     <script>
         function showIsland(id) {
-            document.getElementById('home-menu').style.display = 'none';
-            document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
-            const target = document.getElementById(id);
-            if(target) {
-                target.classList.add('active');
-            }
-            window.scrollTo(0,0);
+            document.getElementById('home-menu').classList.remove('active');
+            document.querySelectorAll('.island-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
         }
 
         function goHome() {
-            document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
-            document.getElementById('home-menu').style.display = 'flex';
-            window.scrollTo(0,0);
+            document.querySelectorAll('.island-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('home-menu').classList.add('active');
+            window.scrollTo(0, 0);
         }
     </script>
 </body>
