@@ -56,6 +56,7 @@
             align-items: center;
             width: 100%;
             transition: 0.2s;
+            text-decoration: none;
         }
 
         .island-btn:active { transform: scale(0.98); background-color: var(--dracula-purple); color: var(--dracula-bg); }
@@ -99,7 +100,16 @@
             padding: 20px;
             border-radius: 15px;
             border-left: 4px solid var(--dracula-purple);
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
+
+        .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem; }
+        .label { color: var(--dracula-cyan); font-weight: bold; }
+        .transport-card { background: var(--dracula-gray); padding: 12px; border-radius: 10px; margin-bottom: 10px; }
+        .contact-btn { display: block; text-align: center; background: var(--dracula-cyan); color: var(--dracula-bg); text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+        .budget-summary { background-color: var(--dracula-purple); color: var(--dracula-bg); padding: 15px; border-radius: 12px; text-align: center; font-weight: bold; }
+        hr { border: 0; border-top: 1px solid var(--dracula-gray); margin: 15px 0; }
     </style>
 </head>
 <body>
@@ -131,12 +141,14 @@
             <summary>📑 Transfer Slips</summary>
             <div class="dropdown-content">
                 <div class="card" style="border-color: var(--dracula-green);">
-                    <p style="text-align: center; font-size: 0.9rem;">Upload payment slips here:</p>
+                    <p style="text-align: center; font-size: 0.9rem; margin-bottom: 15px;">Upload payment slips here:</p>
+                    
                     <input type="file" id="slip-upload" accept="image/*" style="display: none;">
-                    <label for="slip-upload" class="island-btn" style="border-color: var(--dracula-green); justify-content: center; padding: 15px;">
-                        📤 Upload New Slip
+                    <label for="slip-upload" class="island-btn" style="border-color: var(--dracula-green); justify-content: center;">
+                        <span>📤 Upload New Slip</span>
                     </label>
-                    <div style="margin-top: 20px; height: 300px; background: #282a36; border-radius: 10px; overflow: hidden;">
+
+                    <div style="margin-top: 20px; height: 350px; background: #282a36; border-radius: 10px; overflow: hidden; border: 1px solid var(--dracula-gray);">
                         <iframe src="YOUR_SHARED_FOLDER_LINK" style="width: 100%; height: 100%; border: none;"></iframe>
                     </div>
                 </div>
@@ -147,24 +159,109 @@
     <div id="thulusdhoo" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
         <h1>🏝️ K. Thulusdhoo</h1>
-        <div class="card">Itinerary details here...</div>
+        <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
+        
+        <div class="card">
+            <h2>📍 Stay & Group</h2>
+            <div class="info-row"><span class="label">Hotel:</span><span>Blissview Maldives</span></div>
+            <div class="info-row"><span class="label">Rooms:</span><span>2 Rooms / 3 Single Beds</span></div>
+        </div>
+
+        <div class="card" style="border-left-color: var(--dracula-cyan);">
+            <h2>⛴️ Transport</h2>
+            <div class="transport-card">
+                <div class="label">Male' → Thulusdhoo (Sun, 26 Apr)</div>
+                <div>9:15 AM | MVR 200</div>
+            </div>
+            <div class="transport-card">
+                <div class="label">Thulusdhoo → Male' (Tue, 28 Apr)</div>
+                <div>10:30 AM | MVR 200</div>
+            </div>
+            <a href="tel:+9607316362" class="contact-btn">📞 Call Refcool: 7316362</a>
+        </div>
+
+        <div class="card" style="border-left-color: var(--dracula-pink);">
+            <h2>💰 Budget</h2>
+            <div class="info-row"><span>Stay:</span><span>MVR 1,162</span></div>
+            <div class="info-row"><span>Speedboat:</span><span>MVR 400</span></div>
+            <div class="info-row"><span>Food Est:</span><span>MVR 780</span></div>
+            <hr>
+            <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
+                <span>Total Per Person:</span><span>MVR 2,342</span>
+            </div>
+        </div>
     </div>
+
     <div id="dhiffushi" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
         <h1>🌊 K. Dhiffushi</h1>
-        <div class="card">Itinerary details here...</div>
+        <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
+
+        <div class="card">
+            <h2>📍 Stay & Group</h2>
+            <div class="info-row"><span class="label">Hotel:</span><span>Holiday Home Dhiffushi</span></div>
+            <div class="info-row"><span class="label">Rooms:</span><span>1 Deluxe Triple Room</span></div>
+        </div>
+
+        <div class="card" style="border-left-color: var(--dracula-cyan);">
+            <h2>⛴️ Transport</h2>
+            <div class="transport-card">
+                <div class="label">Male' → Dhiffushi (Sun, 26 Apr)</div>
+                <div>11:30 AM | MVR 300</div>
+            </div>
+            <a href="tel:+9609163269" class="contact-btn">📞 Call Altec: 9163269</a>
+        </div>
+
+        <div class="card" style="border-left-color: var(--dracula-pink);">
+            <h2>💰 Budget</h2>
+            <div class="info-row"><span>Stay:</span><span>MVR 925</span></div>
+            <div class="info-row"><span>Speedboat:</span><span>MVR 600</span></div>
+            <div class="info-row"><span>Food Est:</span><span>MVR 780</span></div>
+            <hr>
+            <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
+                <span>Total Per Person:</span><span>MVR 2,305</span>
+            </div>
+        </div>
     </div>
+
     <div id="huraa" class="island-section">
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
         <h1>⛵ K. Huraa</h1>
-        <div class="card">Itinerary details here...</div>
+        <p style="opacity: 0.8; margin-bottom: 20px;">April 26 – 28, 2026</p>
+
+        <div class="card">
+            <h2>📍 Stay & Group</h2>
+            <div class="info-row"><span class="label">Hotel:</span><span>Wish Guesthouse</span></div>
+            <div class="info-row"><span class="label">Rooms:</span><span>1 Double Room (3 Beds)</span></div>
+        </div>
+
+        <div class="card" style="border-left-color: var(--dracula-cyan);">
+            <h2>⛴️ Transport</h2>
+            <div class="transport-card">
+                <div class="label">Male' → Huraa (Sun, 26 Apr)</div>
+                <div>11:00 AM | MVR 150</div>
+            </div>
+            <a href="tel:+9607741313" class="contact-btn">📞 Call Sea Shine: 7741313</a>
+        </div>
+
+        <div class="card" style="border-left-color: var(--dracula-pink);">
+            <h2>💰 Budget</h2>
+            <div class="info-row"><span>Stay:</span><span>MVR 1,223</span></div>
+            <div class="info-row"><span>Speedboat:</span><span>MVR 300</span></div>
+            <div class="info-row"><span>Food Est:</span><span>MVR 780</span></div>
+            <hr>
+            <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
+                <span>Total Per Person:</span><span>MVR 2,303</span>
+            </div>
+        </div>
     </div>
 
     <script>
         function showIsland(id) {
             document.getElementById('home-menu').classList.remove('active');
             document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+            const target = document.getElementById(id);
+            if(target) target.classList.add('active');
             window.scrollTo(0,0);
         }
 
