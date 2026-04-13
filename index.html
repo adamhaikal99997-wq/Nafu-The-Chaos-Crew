@@ -144,6 +144,27 @@
         }
 
         hr { border: 0; border-top: 1px solid var(--dracula-gray); margin: 15px 0; }
+        .planning-dropdown {
+            background-color: var(--dracula-gray);
+            border-radius: 15px;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: 1px dashed var(--dracula-purple);
+        }
+        .planning-dropdown summary {
+            font-weight: bold;
+            color: var(--dracula-pink);
+            list-style: none;
+            text-align: center;
+            padding: 10px;
+        }
+        .dropdown-content {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
     </style>
 </head>
 <body>
@@ -152,6 +173,23 @@
         <div class="menu-header">
             <h1>💅 Nafu & The Chaos Crew</h1>
         </div>
+        <details class="planning-dropdown">
+            <summary>📂 Planning Section</summary>
+            <div class="dropdown-content">
+                <button class="island-btn" onclick="showIsland('thulusdhoo')">
+                    K. Thulusdhoo <span>🏝️</span>
+                </button>
+                
+                <button class="island-btn" onclick="showIsland('dhiffushi')">
+                    K. Dhiffushi <span>🌊</span>
+                </button>
+                
+                <button class="island-btn" onclick="showIsland('huraa')">
+                    K. Huraa <span>⛵</span>
+                </button>
+            </div>
+        </details>
+    </div>
         
         <button class="island-btn" onclick="showIsland('thulusdhoo')">
             K. Thulusdhoo <span>🏝️</span>
@@ -399,6 +437,6 @@
             document.getElementById('home-menu').classList.add('active');
             window.scrollTo(0, 0);
         }
-    </script>
+    </script> 
 </body>
 </html> 
