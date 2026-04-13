@@ -40,7 +40,7 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .menu-header { text-align: center; margin-bottom: 20px; }
-        .menu-header h1 { color: var(--dracula-purple); font-size: 1.8rem; }
+        .menu-header h1 { color: var(--dracula-purple); font-size: 1.8rem; margin-bottom: 5px; }
 
         .island-btn {
             background-color: var(--dracula-gray);
@@ -57,6 +57,7 @@
             width: 100%;
             transition: 0.2s;
             text-decoration: none;
+            box-sizing: border-box;
         }
 
         .island-btn:active { transform: scale(0.98); background-color: var(--dracula-purple); color: var(--dracula-bg); }
@@ -104,11 +105,14 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
+        h2 { font-size: 1.2rem; color: var(--dracula-pink); margin-top: 0; border-bottom: 1px solid var(--dracula-gray); padding-bottom: 8px; }
         .info-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.95rem; }
         .label { color: var(--dracula-cyan); font-weight: bold; }
         .transport-card { background: var(--dracula-gray); padding: 12px; border-radius: 10px; margin-bottom: 10px; }
         .contact-btn { display: block; text-align: center; background: var(--dracula-cyan); color: var(--dracula-bg); text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
         .budget-summary { background-color: var(--dracula-purple); color: var(--dracula-bg); padding: 15px; border-radius: 12px; text-align: center; font-weight: bold; }
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 10px; font-size: 0.9rem; }
         hr { border: 0; border-top: 1px solid var(--dracula-gray); margin: 15px 0; }
     </style>
 </head>
@@ -137,7 +141,7 @@
         <button class="back-btn" onclick="goHome()">← Back to Menu</button>
         <h1 style="text-align: center; color: var(--dracula-pink);">💰 Budget Central</h1>
 
-        <details class="slip-dropdown">
+        <details class="slip-dropdown" open>
             <summary>📑 Transfer Slips</summary>
             <div class="dropdown-content">
                 <div class="card" style="border-color: var(--dracula-green);">
@@ -165,6 +169,7 @@
             <h2>📍 Stay & Group</h2>
             <div class="info-row"><span class="label">Hotel:</span><span>Blissview Maldives</span></div>
             <div class="info-row"><span class="label">Rooms:</span><span>2 Rooms / 3 Single Beds</span></div>
+            <div class="info-row"><span class="label">Group:</span><span>3 People</span></div>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-cyan);">
@@ -181,14 +186,27 @@
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget</h2>
+            <h2>💰 Budget Breakdown</h2>
             <div class="info-row"><span>Stay:</span><span>MVR 1,162</span></div>
             <div class="info-row"><span>Speedboat:</span><span>MVR 400</span></div>
-            <div class="info-row"><span>Food Est:</span><span>MVR 780</span></div>
+            <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
+            <div style="margin: 5px 0 10px 15px; font-size: 0.85rem; opacity: 0.8; border-left: 1px solid var(--dracula-gray); padding-left: 10px;">
+                <div class="info-row"><span>• Lunch (2x)</span><span>MVR 240</span></div>
+                <div class="info-row"><span>• Dinner (2x)</span><span>MVR 400</span></div>
+            </div>
             <hr>
             <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
                 <span>Total Per Person:</span><span>MVR 2,342</span>
             </div>
+        </div>
+
+        <div class="card">
+            <h2>🌊 Activities</h2>
+            <ul>
+                <li><strong>Surfer Watching:</strong> Cokes Island (Free)</li>
+                <li><strong>Coca-Cola Factory:</strong> Desalination tour ($5-$10)</li>
+                <li><strong>Bikini Beach:</strong> North-west beach (Free)</li>
+            </ul>
         </div>
     </div>
 
@@ -209,18 +227,30 @@
                 <div class="label">Male' → Dhiffushi (Sun, 26 Apr)</div>
                 <div>11:30 AM | MVR 300</div>
             </div>
+            <div class="transport-card">
+                <div class="label">Dhiffushi → Male' (Tue, 28 Apr)</div>
+                <div>13:30 PM | MVR 300</div>
+            </div>
             <a href="tel:+9609163269" class="contact-btn">📞 Call Altec: 9163269</a>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget</h2>
+            <h2>💰 Budget Breakdown</h2>
             <div class="info-row"><span>Stay:</span><span>MVR 925</span></div>
             <div class="info-row"><span>Speedboat:</span><span>MVR 600</span></div>
-            <div class="info-row"><span>Food Est:</span><span>MVR 780</span></div>
+            <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
             <hr>
             <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
                 <span>Total Per Person:</span><span>MVR 2,305</span>
             </div>
+        </div>
+
+        <div class="card">
+            <h2>🌊 Activities</h2>
+            <ul>
+                <li><strong>Sandbank Picnic:</strong> Explore lagoons</li>
+                <li><strong>Stingray Feeding:</strong> Harbor (Free)</li>
+            </ul>
         </div>
     </div>
 
@@ -241,33 +271,53 @@
                 <div class="label">Male' → Huraa (Sun, 26 Apr)</div>
                 <div>11:00 AM | MVR 150</div>
             </div>
+            <div class="transport-card">
+                <div class="label">Huraa → Male' (Tue, 28 Apr)</div>
+                <div>13:00 PM | MVR 150</div>
+            </div>
             <a href="tel:+9607741313" class="contact-btn">📞 Call Sea Shine: 7741313</a>
         </div>
 
         <div class="card" style="border-left-color: var(--dracula-pink);">
-            <h2>💰 Budget</h2>
+            <h2>💰 Budget Breakdown</h2>
             <div class="info-row"><span>Stay:</span><span>MVR 1,223</span></div>
             <div class="info-row"><span>Speedboat:</span><span>MVR 300</span></div>
-            <div class="info-row"><span>Food Est:</span><span>MVR 780</span></div>
+            <div class="info-row"><span>Food (Est):</span><span>MVR 780</span></div>
             <hr>
             <div class="info-row" style="font-weight: bold; color: var(--dracula-green);">
                 <span>Total Per Person:</span><span>MVR 2,303</span>
             </div>
         </div>
+
+        <div class="card">
+            <h2>🌊 Activities</h2>
+            <ul>
+                <li><strong>Mangrove Reserve:</strong> Nature exploration (Free)</li>
+                <li><strong>House Reef:</strong> Snorkeling (Free)</li>
+            </ul>
+        </div>
     </div>
 
     <script>
         function showIsland(id) {
-            document.getElementById('home-menu').classList.remove('active');
-            document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('home-menu').style.display = 'none';
+            document.querySelectorAll('.island-section').forEach(s => s.style.display = 'none');
             const target = document.getElementById(id);
-            if(target) target.classList.add('active');
+            if(target) {
+                target.style.display = 'flex';
+                target.classList.add('active');
+            }
             window.scrollTo(0,0);
         }
 
         function goHome() {
-            document.querySelectorAll('.island-section').forEach(s => s.classList.remove('active'));
-            document.getElementById('home-menu').classList.add('active');
+            document.querySelectorAll('.island-section').forEach(s => {
+                s.style.display = 'none';
+                s.classList.remove('active');
+            });
+            const home = document.getElementById('home-menu');
+            home.style.display = 'flex';
+            home.classList.add('active');
             window.scrollTo(0,0);
         }
     </script>
